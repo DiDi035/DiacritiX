@@ -18,10 +18,8 @@ module DiacritiX
     def self.call(input)
       ALL_RULES.each do |rule_klass|
         valid, index = rule_klass.check(input)
-
         return Response::Success.new(index) if valid
       end
-
       Response::Failure.new('Something is wrong')
     end
   end

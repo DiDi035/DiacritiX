@@ -1,15 +1,18 @@
-module Rules
-  class HasVietnameseVowel
-    VIETNAMESE_VOWELS = ['ă', 'â', 'ê', 'ô', 'ơ', 'ư'].freeze
+require_relative '../constants'
 
-    def self.check(input)
-      VIETNAMESE_VOWELS.each do |vnmese_vowel|
-        if input.include?(vnmese_vowel)
-          return [true, input.index(vnmese_vowel)]
+module DiacritiX
+  module Rules
+    class HasVietnameseVowel
+      def self.check(input)
+        ::Constants::VIETNAMESE_VOWELS.each do |vnmese_vowel|
+          if input.include?(vnmese_vowel)
+            return [true, input.index(vnmese_vowel)]
+          end
         end
-      end
 
-      [false, nil]
+        [false, nil]
+      end
     end
   end
 end
+

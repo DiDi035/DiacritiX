@@ -4,8 +4,7 @@ require_relative 'diacriti_x/accentifier'
 
 module DiacritiX
   class << self
-    def call(input)
-    end
+    def call(_); end
   end
 
   module Cli
