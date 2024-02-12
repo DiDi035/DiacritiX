@@ -1,7 +1,7 @@
 module DiacritiX
   module Rules
     class SecondVowel
-      SPECIAL_PAIR_VOWELS = ['oa', 'oe', 'oo', 'uy'].freeze
+      SPECIAL_PAIR_VOWELS = ['oa', 'oe', 'oo', 'uy', 'ươ'].freeze
 
       def self.check(input)
         SPECIAL_PAIR_VOWELS.each do |vnmese_pair_vowels|

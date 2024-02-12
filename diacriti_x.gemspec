@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
   s.license = "MIT"
   s.files = Dir.glob("{lib,bin}/**/*") # This includes all files under the lib directory recursively, so we don't have to add each one individually.
   s.require_path = 'lib'
-  s.executables = ['diacriti_x']
+  s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
 end

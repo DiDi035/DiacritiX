@@ -12,4 +12,3 @@ module DiacritiX
     end
   end
 end
-

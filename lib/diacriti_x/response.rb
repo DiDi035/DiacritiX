@@ -1,8 +1,8 @@
 module DiacritiX
   module Response
     class Success
-      def initialize(index)
-        @index = index
+      def initialize(result)
+        @result = result
       end
 
       def success?
@@ -13,9 +13,11 @@ module DiacritiX
         false
       end
 
-      def index
-        @index
+      def message
+        nil
       end
+
+      attr_reader :result
     end
 
     class Failure
@@ -31,9 +33,11 @@ module DiacritiX
         true
       end
 
-      def message
-        @message
+      def result
+        nil
       end
+
+      attr_reader :message
     end
   end
 end

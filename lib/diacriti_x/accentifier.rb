@@ -13,7 +13,7 @@ module DiacritiX
       Rules::SecondVowel,
       Rules::NextVowel,
       Rules::FirstVowel
-    ]
+    ].freeze
 
     def self.call(input)
       ALL_RULES.each do |rule_klass|

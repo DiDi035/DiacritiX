@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-require 'diacriti_x'
-
-DiacritiX::Cli.call(ARGV[0])

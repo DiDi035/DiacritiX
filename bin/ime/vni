@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require_relative '../../lib/diacriti_x'
+
+raise 'Missing argument' if ARGV[0].nil?
+
+DiacritiX::Cli::IME::VNI.call(ARGV[0])
