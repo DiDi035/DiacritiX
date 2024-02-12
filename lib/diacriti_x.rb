@@ -10,12 +10,11 @@ module DiacritiX
   module Cli
     class << self
       def call(input)
-        input = ARGV[0]
         response = Accentifier.call(input)
 
         if response.success?
           index = response.index
-          puts input[0..index-1]+input[index].green+input[index+1..input.length]
+          puts input[0..index - 1] + input[index].green + input[index + 1..input.length]
         else
           puts response.message.red
         end
@@ -23,5 +22,3 @@ module DiacritiX
     end
   end
 end
-
-
