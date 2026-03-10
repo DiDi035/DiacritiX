@@ -3,18 +3,18 @@
 require_relative 'lib/diacriti_x/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'diacriti_x'
-  s.version     = DiacritiX::VERSION
-  s.summary     = 'Vietnamese diacritics placement and IME input'
+  s.name = 'diacriti_x'
+  s.version = DiacritiX::VERSION
+  s.summary = 'Vietnamese diacritics placement and IME input'
   s.description = 'Determines which letter in a Vietnamese word should receive accent marks, ' \
                   'and provides IME input methods (VNI) for typing Vietnamese.'
-  s.authors     = ['Di Huynh']
-  s.email       = 'baodihuynh@gmail.com'
-  s.files       = Dir.glob('{lib,bin}/**/*') + %w[README.md CHANGELOG.md]
-  s.bindir      = 'bin'
+  s.authors = ['Di Huynh']
+  s.email = 'baodihuynh@gmail.com'
+  s.files = Dir.glob('{lib,bin}/**/*') + %w[README.md CHANGELOG.md]
+  s.bindir = 'bin'
   s.executables = ['accentify']
   s.require_path = 'lib'
-  s.homepage    = 'https://github.com/DiDi035/DiacritiX'
+  s.homepage = 'https://github.com/DiDi035/DiacritiX'
 
   s.required_ruby_version = '>= 3.3'
 
