@@ -10,12 +10,11 @@ Gem::Specification.new do |s|
                   'and provides IME input methods (VNI) for typing Vietnamese.'
   s.authors     = ['Di Huynh']
   s.email       = 'baodihuynh@gmail.com'
-  s.files       = Dir.glob('{lib,bin}/**/*') + %w[LICENSE README.md CHANGELOG.md]
+  s.files       = Dir.glob('{lib,bin}/**/*') + %w[README.md CHANGELOG.md]
   s.bindir      = 'bin'
   s.executables = ['accentify']
   s.require_path = 'lib'
   s.homepage    = 'https://github.com/DiDi035/DiacritiX'
-  s.license     = 'MIT'
 
   s.required_ruby_version = '>= 3.3'
 
