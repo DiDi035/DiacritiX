@@ -21,6 +21,14 @@ module DiacritiX
         '9' => Constants::DYET_MAPPINGS
       }.freeze
 
+      class << self
+        def call(input)
+          transformed_text = new.call(input)
+
+          puts transformed_text.green
+        end
+      end
+
       def call(text)
         accent_mappings, accent_index, sanitized_text, transformed_text = extract_accent_mapping(text)
         return transformed_text if accent_mappings.nil?

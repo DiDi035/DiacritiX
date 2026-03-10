@@ -12,21 +12,9 @@ module DiacritiX
 
         if response.success?
           index = response.result
-          puts input[0..index - 1] + input[index].green + input[index + 1..input.length]
+          puts input[0..(index - 1)] + input[index].green + input[(index + 1)..input.length]
         else
           puts response.message.red
-        end
-      end
-    end
-
-    module IME
-      class VNI
-        class << self
-          def call(input)
-            transformed_text = DiacritiX::IME::VNI.new.call(input)
-
-            puts transformed_text.green
-          end
         end
       end
     end

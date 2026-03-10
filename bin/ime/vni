@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative '../../lib/diacriti_x'
+require_relative '../../lib/diacriti_x/ime/vni'
 
 raise 'Missing argument' if ARGV[0].nil?
 
-DiacritiX::Cli::IME::VNI.call(ARGV[0])
+DiacritiX::IME::VNI.call(ARGV[0])
