@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/DiDi035/DiacritiX'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 3.1'
+  s.required_ruby_version = '>= 3.3'
 
   s.add_dependency 'colorize', '~> 1.1'
 
