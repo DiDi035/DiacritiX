@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Run tests
+        run: bundle exec rake test
+
+      - name: Extract version
+        id: version
+        run: echo "VERSION=$(ruby -r ./lib/diacriti_x/version -e 'puts DiacritiX::VERSION')" >> "$GITHUB_OUTPUT"
+
+      - name: Build gem
+        run: gem build diacriti_x.gemspec
+
+      - name: Publish to RubyGems
+        run: gem push diacriti_x-${{ steps.version.outputs.VERSION }}.gem
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+
+      - name: Create GitHub Release
+        run: gh release create "v${{ steps.version.outputs.VERSION }}" diacriti_x-${{ steps.version.outputs.VERSION }}.gem --title "v${{ steps.version.outputs.VERSION }}" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
