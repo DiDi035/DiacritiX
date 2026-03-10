@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module DiacritiX
   module Response
     class Success
+      attr_reader :result
+
       def initialize(result)
         @result = result
       end
@@ -16,11 +20,11 @@ module DiacritiX
       def message
         nil
       end
-
-      attr_reader :result
     end
 
     class Failure
+      attr_reader :message
+
       def initialize(message)
         @message = message
       end
@@ -36,8 +40,6 @@ module DiacritiX
       def result
         nil
       end
-
-      attr_reader :message
     end
   end
 end

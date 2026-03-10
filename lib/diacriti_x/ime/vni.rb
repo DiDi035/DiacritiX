@@ -10,10 +10,10 @@ module DiacritiX
       DYET_KEY = '9'
       HORN_KEY = '7'
       ACCENT_MAPPINGS = {
-        '1' => Constants::ACCUTE_MAPPINGS,
+        '1' => Constants::ACUTE_MAPPINGS,
         '2' => Constants::GRAVE_MAPPINGS,
         '3' => Constants::HOOK_ABOVE_MAPPINGS,
-        '4' => Constants::TIDLE_MAPPINGS,
+        '4' => Constants::TILDE_MAPPINGS,
         '5' => Constants::DOT_MAPPINGS,
         '6' => Constants::CIRCUMFLEX_MAPPINGS,
         '7' => Constants::HORN_MAPPINGS,
@@ -40,16 +40,14 @@ module DiacritiX
 
       private
 
-      attr_reader :accentifier
-
-      def extract_accent_mapping(text)
+      def extract_accent_mapping(text) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
         transformed_text = text.dup
         sanitized_text = text.dup
         accent_mappings = nil
         accent_index = nil
         dyet_char = nil
         special_horn_char = nil
-        text.split('').each_with_index do |char, idx|
+        text.chars.each_with_index do |char, idx|
           dyet_char = char if Constants::DYET_MAPPINGS.include?(char)
 
           special_horn_char = text[(idx - 1)..idx] if idx.positive? && !SPECIAL_HORN_MAPPINGS[text[(idx - 1)..idx]].nil?

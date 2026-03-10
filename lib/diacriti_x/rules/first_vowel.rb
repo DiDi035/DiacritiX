@@ -1,17 +1,15 @@
+# frozen_string_literal: true
+
 require_relative '../constants'
 
 module DiacritiX
   module Rules
     class FirstVowel
-      LATIN_VOWELS = ['a', 'e', 'o', 'u', 'u', 'y', 'i'].freeze
+      LATIN_VOWELS = %w[a e i o u y].freeze
 
       def self.check(input)
-        input.split('').each do |letter|
-          if LATIN_VOWELS.include?(letter)
-            return [true, input.index(letter)]
-          elsif ::Constants::VIETNAMESE_VOWELS.include?(letter)
-            return [true, input.index(letter)]
-          end
+        input.each_char.with_index do |letter, index|
+          return [true, index] if LATIN_VOWELS.include?(letter) || Constants::VIETNAMESE_VOWELS.include?(letter)
         end
 
         [false, nil]

@@ -1,17 +1,16 @@
+# frozen_string_literal: true
+
 module DiacritiX
   module Rules
     class HasSpecialVietnameseVowel
-      SPECIAL_VIETNAMESE_VOWEL = ['ơ', 'ư'].freeze
+      SPECIAL_VIETNAMESE_VOWEL = %w[ơ ư].freeze
 
       def self.check(input)
-        validation_result = [false, nil]
         SPECIAL_VIETNAMESE_VOWEL.each do |special_vowel|
-          if input.include?(special_vowel)
-            validation_result = [true, input.index(special_vowel)]
-            break
-          end
+          return [true, input.index(special_vowel)] if input.include?(special_vowel)
         end
-        validation_result
+
+        [false, nil]
       end
     end
   end

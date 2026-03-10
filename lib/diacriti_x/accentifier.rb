@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'rules/has_special_vietnamese_vowel'
 require_relative 'rules/has_vietnamese_vowel'
 require_relative 'rules/second_vowel'

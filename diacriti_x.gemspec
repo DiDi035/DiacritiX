@@ -1,14 +1,29 @@
+# frozen_string_literal: true
+
+require_relative 'lib/diacriti_x/version'
+
 Gem::Specification.new do |s|
-  s.name        = "diacriti_x"
-  s.version     = "0.0.0"
-  s.summary     = "Specify which letter in a Vietnamese word should accents be place above"
-  s.description = "Specify which letter in a Vietnamese word should accents be place above"
-  s.authors     = ["Di Huynh"]
-  s.email       = "baodihuynh@gmail.com"
-  s.files       = ["lib/diacriti_x.rb"]
-  s.homepage    = "https://rubygems.org/gems/diacriti_x"
-  s.license = "MIT"
-  s.files = Dir.glob("{lib,bin}/**/*") # This includes all files under the lib directory recursively, so we don't have to add each one individually.
+  s.name        = 'diacriti_x'
+  s.version     = DiacritiX::VERSION
+  s.summary     = 'Vietnamese diacritics placement and IME input'
+  s.description = 'Determines which letter in a Vietnamese word should receive accent marks, ' \
+                  'and provides IME input methods (VNI) for typing Vietnamese.'
+  s.authors     = ['Di Huynh']
+  s.email       = 'baodihuynh@gmail.com'
+  s.files       = Dir.glob('{lib,bin}/**/*') + %w[LICENSE README.md CHANGELOG.md]
+  s.bindir      = 'bin'
+  s.executables = ['accentify']
   s.require_path = 'lib'
-  s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  s.homepage    = 'https://github.com/DiDi035/DiacritiX'
+  s.license     = 'MIT'
+
+  s.required_ruby_version = '>= 3.1'
+
+  s.add_dependency 'colorize', '~> 1.1'
+
+  s.metadata = {
+    'source_code_uri' => 'https://github.com/DiDi035/DiacritiX',
+    'changelog_uri' => 'https://github.com/DiDi035/DiacritiX/blob/master/CHANGELOG.md',
+    'rubygems_mfa_required' => 'true'
+  }
 end
