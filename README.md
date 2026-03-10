@@ -62,6 +62,11 @@ vni.call('di9')         # => "đi"
 ```bash
 # Highlight which letter receives the accent
 accentify "ngoay"
+# => ngo[a]y (the 'a' is highlighted in green)
+
+# Transform VNI input into Vietnamese
+ruby bin/ime/vni "Vie6t5 Nam"
+# => Việt Nam
 ```
 
 ## Accent placement rules
